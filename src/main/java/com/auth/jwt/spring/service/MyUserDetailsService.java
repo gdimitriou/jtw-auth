@@ -15,6 +15,6 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         // Hard Coded User
-        return new User("foo@hotmail.com", "foo12345678", new ArrayList<>());
+        return new User("foo", "foo", new ArrayList<>());
     }
 }

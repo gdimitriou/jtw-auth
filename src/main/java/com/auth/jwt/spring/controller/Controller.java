@@ -5,6 +5,7 @@ import com.auth.jwt.spring.model.AuthenticationRequest;
 import com.auth.jwt.spring.model.AuthenticationResponse;
 import com.auth.jwt.spring.model.RegisterUser;
 import com.auth.jwt.spring.service.MyUserDetailsService;
+import com.auth.jwt.spring.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth.jwt.spring.entity.User;
+
 @RestController
 public class Controller {
 
@@ -30,6 +33,9 @@ public class Controller {
 
 	@Autowired
 	private JwtUtil jwtUtil;
+
+	@Autowired
+	private UserService userService;
 
 
 	@CrossOrigin
@@ -79,14 +85,24 @@ public class Controller {
 	@PostMapping(value = "/register", consumes = "application/json")
 	public ResponseEntity<?> register(@RequestBody RegisterUser registerUser) {
 
-		String firstName  = registerUser.getFirstName();
+		String firstName = registerUser.getFirstName();
 		String lastName = registerUser.getLastName();
-		String userName  = registerUser.getUserName();
+		String userName = registerUser.getUserName();
 		String password = registerUser.getPassword();
 		String email = registerUser.getEmail();
 		String occupation = registerUser.getOccupation();
 		String city = registerUser.getCity();
 		String bio = registerUser.getBio();
+
+		User user = new User();
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setEmail(email);
+		user.setUserName(userName);
+		user.setPassword(password);
+
+		userService.addUserToDatabase(user);
+
 
 		System.out.println(firstName);
 		System.out.println(lastName);

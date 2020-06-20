@@ -14,6 +14,6 @@ Test the Program:
    
 Expected Output:
 1. After POST hit, you may take as response a json web token.
-2. After GET hit, the authorized user may take as response a simple "Hello World" and the unauthorized user "Forbidden"
+2. After GET hit, the authorized userDAO may take as response a simple "Hello World" and the unauthorized userDAO "Forbidden"
 
 swaggerUI can be found at: http://localhost:8080/swagger-ui.html

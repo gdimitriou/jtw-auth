@@ -1,5 +1,6 @@
 package com.auth.jwt.spring.controller;
 
+import com.auth.jwt.spring.entity.UserDAO;
 import com.auth.jwt.spring.jwt.JwtUtil;
 import com.auth.jwt.spring.model.AuthenticationRequest;
 import com.auth.jwt.spring.model.AuthenticationResponse;
@@ -19,8 +20,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.auth.jwt.spring.entity.User;
 
 @RestController
 public class Controller {
@@ -94,14 +93,14 @@ public class Controller {
 		String city = registerUser.getCity();
 		String bio = registerUser.getBio();
 
-		User user = new User();
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
-		user.setEmail(email);
-		user.setUserName(userName);
-		user.setPassword(password);
+		UserDAO userDAO = new UserDAO();
+		userDAO.setFirstName(firstName);
+		userDAO.setLastName(lastName);
+		userDAO.setEmail(email);
+		userDAO.setUserName(userName);
+		userDAO.setPassword(password);
 
-		userService.addUserToDatabase(user);
+		userService.addUserToDatabase(userDAO);
 
 
 		System.out.println(firstName);

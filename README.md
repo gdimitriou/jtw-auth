@@ -7,6 +7,7 @@ Steps to run the program:
 
 Instructions to run the Program:
 1. Hit POST http://localhost:8080/register
+
    Request Body : {
                     "bio": "string",
                     "city": "string",
@@ -19,6 +20,7 @@ Instructions to run the Program:
                   }
    This request will create a new user in the Database.               
 2. Hit: POST http://localhost:8080/authenticate
+
    Request Body: { "username": "foo", "password": "foo"}
    This Request will generate a json web token for the user.
 3. Hit: GET http://localhost:8080/hello

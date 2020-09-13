@@ -17,7 +17,13 @@ Instructions to run the Program:
                     "occupation": "string",
                     "password": "string",
                     "userName": "string"
-                  }
+                    "email": "string",
+                    "firstName": "string",
+                    "lastName": "string",
+                    "occupation": "string",
+                    "password": "string",
+                    "userName": "string"
+                  }        
    This request will create a new user in the Database.               
 2. Hit: POST http://localhost:8080/authenticate
 
